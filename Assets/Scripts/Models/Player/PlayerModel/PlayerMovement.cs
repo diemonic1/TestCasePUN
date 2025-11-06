@@ -53,4 +53,9 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayersHandler.Instance.OnPlayerMoved(_targetPosition);
     }
+
+    private void OnDestroy()
+    {
+        PhotonNetworkService.Instance.OnOtherPlayerJoinGame -= SendPosition;
+    }
 }
